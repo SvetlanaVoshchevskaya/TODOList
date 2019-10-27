@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>TODOList</title>
+  </head>
+
+  <body>
+    <div class="search-create-container">
+      <div class="search-form">
+        <input type="text" class=" search-form-input" />
+        <select class=" search-form-input">
+          <option>all</option>
+          <option>open</option>
+          <option>done</option>
+        </select>
+        <select class=" search-form-input">
+          <option>all</option>
+          <option>hight</option>
+          <option>normal</option>
+          <option>low</option>
+        </select>
+      </div>
+      <button type="button" class="search-form-btn">Create</button>
+    </div>
+
+    <!--template for notes-->
+    <div id="app"></div>
+    <script id="js-card-template" type="text/x-handlebars-template">
+      <div class="notes" data-id="{{id}}">
+      <p class="notes-title">{{title}} </p>
+      <p class="notes-description">{{description}} </p>
+      <p class='notes-priority'>{{priority}}</p>
+
+
+      <select name="priority" class="selected">
+        <option selected="selected" >...</option>
+         <option value="delete"  class="option-delete">  Delete </option>
+         <option value="edit"> Edit</option>
+         <option value="done">Done</option>
+       </select>
+
+      <!-- <div>
+        <button class="delete">Delete</button>
+        <button class="edit">Edit</button>
+      </div> -->
+        </div>
+    </script>
+
+    <!--ModalWindow-->
+    <div class="modal modal-hidden js-modal-backdrop">
+      <div class="modal-content">
+        <form class="sub-form">
+          <label for="title" class="label-in-todoform">Title:</label>
+          <input
+            name="title"
+            class="sub-form-input title"
+            type="text"
+            placeholder="Title"
+          />
+          <label for="description" class="label-in-todoform">
+            Description:</label
+          >
+          <input
+            name="description"
+            class="sub-form-input description"
+            type="text"
+            placeholder="Description"
+          />
+          <label for="priority" class="label-in-todoform">Priority:</label>
+          <select name="priority" class="sub-form-input priority ">
+            <option>Hight</option>
+            <option>Normal</option>
+            <option>Low</option>
+          </select>
+          <div class="btn-container">
+            <button class="sub-form-btn cancel" type="button">Cancel</button>
+            <button class="sub-form-btn save" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
